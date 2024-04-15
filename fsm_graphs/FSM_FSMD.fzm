@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 10:12:40 PM on 4/14/24
+## File last modified by Fizzim: 10:29:30 PM on 4/14/24
 <version>
    14.02.26
 </version>
@@ -11685,10 +11685,10 @@ done <- 1
 <textObj>
 if (reg_k < reg_textSize )
    <x>
-   656
+   648
    </x>
    <y>
-   816
+   830
    </y>
    <page>
    1
@@ -11697,10 +11697,10 @@ if (reg_k < reg_textSize )
 <textObj>
 reg_i = (reg_i + 1) % reg_stateSize
    <x>
-   667
+   666
    </x>
    <y>
-   832
+   847
    </y>
    <page>
    1
