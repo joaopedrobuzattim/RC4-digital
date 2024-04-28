@@ -57,8 +57,8 @@ int main() {
     uint8_t state[STATE_SIZE];
     uint8_t keyStream[STATE_SIZE];
     uint8_t ciphertext[STATE_SIZE];
-    uint8_t key[] = "key";
-    uint8_t plaintext[] = "JoaoP";
+    uint8_t key[] = "Joao";
+    uint8_t plaintext[] = "Andre";
     
     printf("Secret key: %s\n", key);
     
