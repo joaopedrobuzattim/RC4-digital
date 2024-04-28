@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 10:12:40 PM on 4/14/24
+## File last modified by Fizzim: 6:59:17 PM on 4/28/24
 <version>
    14.02.26
 </version>
@@ -3036,7 +3036,7 @@ fzm_globalTable
          -2
          </x2Obj>
          <y2Obj>
-         55
+         46
          </y2Obj>
          <page>
          1
@@ -3148,7 +3148,7 @@ fzm_globalTable
          1
          </x2Obj>
          <y2Obj>
-         -10
+         -14
          </y2Obj>
          <page>
          1
@@ -3204,7 +3204,7 @@ fzm_globalTable
          2
          </x2Obj>
          <y2Obj>
-         -37
+         -40
          </y2Obj>
          <page>
          1
@@ -3257,10 +3257,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -1
+         0
          </x2Obj>
          <y2Obj>
-         -23
+         -28
          </y2Obj>
          <page>
          1
@@ -3313,10 +3313,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         -1
+         0
          </x2Obj>
          <y2Obj>
-         -22
+         -30
          </y2Obj>
          <page>
          1
@@ -3327,15 +3327,15 @@ fzm_globalTable
             GLOBAL_FIXED
             </status>
          <value>
-         
+         x
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -3369,10 +3369,10 @@ fzm_globalTable
             </status>
          </resetval>
          <x2Obj>
-         0
+         -1
          </x2Obj>
          <y2Obj>
-         0
+         -21
          </y2Obj>
          <page>
          1
@@ -3744,10 +3744,10 @@ reg_state <- data
             </status>
          </resetval>
          <x2Obj>
-         2
+         3
          </x2Obj>
          <y2Obj>
-         -14
+         -5
          </y2Obj>
          <page>
          1
@@ -3915,7 +3915,7 @@ reg_state <- data
          -1
          </x2Obj>
          <y2Obj>
-         -11
+         -8
          </y2Obj>
          <page>
          1
@@ -3968,10 +3968,10 @@ reg_state <- data
             </status>
          </resetval>
          <x2Obj>
-         1
+         0
          </x2Obj>
          <y2Obj>
-         -7
+         -5
          </y2Obj>
          <page>
          1
@@ -4374,15 +4374,15 @@ reg_state <- data
             GLOBAL_FIXED
             </status>
          <value>
-         
+         x
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -4416,10 +4416,10 @@ reg_state <- data
             </status>
          </resetval>
          <x2Obj>
-         0
+         2
          </x2Obj>
          <y2Obj>
-         0
+         -148
          </y2Obj>
          <page>
          1
@@ -5720,15 +5720,15 @@ reg_stateSize <- data
             GLOBAL_FIXED
             </status>
          <value>
-         
+         x
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </value>
          <vis>
-         0
+         1
             <status>
-            GLOBAL_VAR
+            LOCAL
             </status>
          </vis>
          <type>
@@ -5762,10 +5762,10 @@ reg_stateSize <- data
             </status>
          </resetval>
          <x2Obj>
-         0
+         3
          </x2Obj>
          <y2Obj>
-         0
+         -142
          </y2Obj>
          <page>
          1
@@ -11685,10 +11685,10 @@ done <- 1
 <textObj>
 if (reg_k < reg_textSize )
    <x>
-   656
+   648
    </x>
    <y>
-   816
+   830
    </y>
    <page>
    1
@@ -11697,10 +11697,10 @@ if (reg_k < reg_textSize )
 <textObj>
 reg_i = (reg_i + 1) % reg_stateSize
    <x>
-   667
+   666
    </x>
    <y>
-   832
+   847
    </y>
    <page>
    1
@@ -24490,4 +24490,28 @@ reg_mem <- mem[reg_state + reg_i]
    </stub>
 </transition>
 ## END STATE TRANSITION OBJECT
+<textObj>
+
+   <x>
+   571
+   </x>
+   <y>
+   702
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
+<textObj>
+Compara k e stateSize
+   <x>
+   691
+   </x>
+   <y>
+   769
+   </y>
+   <page>
+   1
+   </page>
+</textObj>
 ## END OBJECTS
