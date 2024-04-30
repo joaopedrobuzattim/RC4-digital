@@ -43,16 +43,11 @@ void GenerateKeyStream(uint8_t state[], uint8_t stateSize, uint8_t textSize, uin
     for (i = 0, j = 0, k = 0; k < textSize; k++)  {
         i = (i + 1) % stateSize;
         j = (j + state[i]) % stateSize;
-	printf("i = %d\n", i);
-	printf("j = %d\n", j);
         // swap(state[i], state[j])
         t = state[i];
-	printf("t1 = %d\n", t);
         state[i] = state[j];
         state[j] = t; 
         t = (state[i] + t) % stateSize;
-	printf("t2 = %d\n", t);
-	printf("----------------------------\n\n");
         keyStream[k] = state[t];
     }
 }
@@ -62,8 +57,8 @@ int main() {
     uint8_t state[STATE_SIZE];
     uint8_t keyStream[STATE_SIZE];
     uint8_t ciphertext[STATE_SIZE];
-    uint8_t key[] = "Joa";
-    uint8_t plaintext[] = "An";
+    uint8_t key[] = "Key";
+    uint8_t plaintext[] = "Andre";
     
     printf("Secret key: %s\n", key);
     
