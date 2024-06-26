@@ -158,7 +158,6 @@ begin
 
 
 
-    -- Chip select da memória
     sel <= '1' when (currentState = S5  or 
                      currentState = S7  or 
                      currentState = S8  or 
@@ -168,14 +167,12 @@ begin
                      currentState = S13
                      ) else '0';
     
-    -- Leitura da memória
     ld <= '1' when (currentState = S5  or 
                     currentState = S7  or 
                     currentState = S10 or 
                     currentState = S12
                     ) else '0';
     
-    -- Endereço da memória 
     process(currentState, state, i, j, t, k, stateSize, keyStream)
     begin
         case currentState is
@@ -192,10 +189,8 @@ begin
         end case;
     end process;
 
-    -- Atribuindo resultado de endereçamento à saída de endereçamento de memória
     address <= STD_LOGIC_VECTOR(sumOut);
 
-    -- Dado para a memória
     process(currentState, mem, t)
     begin
         case currentState is
@@ -208,9 +203,7 @@ begin
         end case;
     end process;
 
-    -- Atribuindo resultado de dado para memória à saída de dado para memória
     data_out <= STD_LOGIC_VECTOR(dataOut);
 
-    -- Saída done
     done        <= '1' when currentState = S4 and k = textSize else '0';
 end behavioral;

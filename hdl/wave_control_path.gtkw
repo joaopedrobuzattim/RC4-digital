@@ -1,0 +1,78 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Wed Jun 26 02:35:00 2024
+[*]
+[dumpfile] "ControlPath.ghw"
+[dumpfile_mtime] "Wed Jun 26 02:30:16 2024"
+[dumpfile_size] 1315
+[savefile] "/Users/joao/Desktop/UFSM/Sistemas Digitais 2/Trabalho 1/hdl/wave_control_path.gtkw"
+[timestart] 0
+[size] 1920 1080
+[pos] -1 -26
+*-27.000000 472400000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] top.
+[treeopen] top.controlpath_tb.
+[treeopen] top.controlpath_tb.control_path.
+[sst_width] 253
+[signals_width] 138
+[sst_expanded] 1
+[sst_vpaned_height] 318
+@420
+top.controlpath_tb.control_path.currentstate
+@28
+top.controlpath_tb.control_path.sts.k_lt_textsize
+top.controlpath_tb.clk
+top.controlpath_tb.rst
+top.controlpath_tb.data_av
+@200
+-Sinais de controle
+@28
+top.controlpath_tb.control_path.cmd.wrkeystream
+top.controlpath_tb.control_path.cmd.wrtextsize
+top.controlpath_tb.control_path.cmd.wrstatesize
+top.controlpath_tb.control_path.cmd.wrstate
+top.controlpath_tb.control_path.cmd.clearaux
+top.controlpath_tb.control_path.cmd.selsum3
+top.controlpath_tb.control_path.cmd.selsum2
+top.controlpath_tb.control_path.cmd.selsum1
+top.controlpath_tb.control_path.cmd.selsum0
+@29
+top.controlpath_tb.control_path.cmd.selt
+@28
+top.controlpath_tb.control_path.cmd.wrk
+top.controlpath_tb.control_path.cmd.wrt
+top.controlpath_tb.control_path.cmd.wrj
+top.controlpath_tb.control_path.cmd.wri
+@200
+-Sinais da Memória
+@28
+top.controlpath_tb.control_path.ld
+top.controlpath_tb.control_path.sel
+[pattern_trace] 1
+[pattern_trace] 0
