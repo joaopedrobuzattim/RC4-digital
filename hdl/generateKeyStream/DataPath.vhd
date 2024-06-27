@@ -185,7 +185,10 @@ begin
     sub <= SIGNED(UNSIGNED(k) - UNSIGNED(textSize));
 
     -- Resto da divisão inteira
-    INTEGER_REMAINDER: entity work.IntegerRemainderNbits        
+    INTEGER_REMAINDER: entity work.IntegerRemainderNbits
+    generic map (
+        WIDTH   => DATA_WIDTH
+    )        
     port map (
         numerator       => STD_LOGIC_VECTOR(sum),
         denominator     => stateSize,
