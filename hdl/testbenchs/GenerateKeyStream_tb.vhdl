@@ -177,63 +177,38 @@ begin
     
     process
     begin
-        report "Aqui";
-
         rst <= '1';
         wait until  clk = '1';
         wait until  clk = '1';
         rst <= '0';
         wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-
         data <= (others => '0');
         data_av <= '1';
         wait until  clk = '1';
-        data_av <= '0';
-
-        wait until  clk = '1';
-        wait until  clk = '1';
-
         data <= "00000100";
-        data_av <= '1';
         wait until  clk = '1';
-        data_av <= '0';
-
-        
-        wait until  clk = '1';
-        wait until  clk = '1';
-
         data <= "00000010";
-        data_av <= '1';
         wait until  clk = '1';
-        data_av <= '0';
-
-        wait until  clk = '1';
-        wait until  clk = '1';
-
         data <= "00000100";
-        data_av <= '1';
         wait until  clk = '1';
-        data_av <= '0';
 
         wait until done = '1';
 
         wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-
-        wait until  clk = '1';
+        data_av <= '0';
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
-
-        
+        wait until  clk = '1';
+        wait until  clk = '1';
+        wait until  clk = '1';
+        wait until  clk = '1';
+        wait until  clk = '1';
         finish;
+        
+        
 
     end process;
 end behavioral;
