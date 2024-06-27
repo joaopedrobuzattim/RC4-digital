@@ -1,15 +1,41 @@
 [*]
 [*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
-[*] Thu Jun 27 00:40:13 2024
+[*] Thu Jun 27 12:14:19 2024
 [*]
 [dumpfile] "GenerateKeyStream.ghw"
-[dumpfile_mtime] "Thu Jun 27 00:19:44 2024"
-[dumpfile_size] 18063
-[savefile] "/Users/joao/Desktop/UFSM/Sistemas Digitais 2/Trabalho 1/hdl/generateKeyStream.gtkw"
+[dumpfile_mtime] "Thu Jun 27 12:12:34 2024"
+[dumpfile_size] 18210
+[savefile] "/Users/joao/Desktop/UFSM/Sistemas Digitais 2/Trabalho 1/hdl/waveView/generateKeyStream.gtkw"
 [timestart] 0
-[size] 1920 1080
+[size] 1440 900
 [pos] -1 -26
-*-27.900000 612000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+*-28.199999 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
 [treeopen] top.
 [treeopen] top.generatekeystream_tb.
 [treeopen] top.generatekeystream_tb.generate_keystream_2.
@@ -96,11 +122,11 @@ top.generatekeystream_tb.generate_keystream_2.done
 -Sinais de Status
 @28
 top.generatekeystream_tb.generate_keystream_2.sts.k_lt_textsize
+@421
+top.generatekeystream_tb.generate_keystream_2.data_path.divisor
 @200
 -Resto da divisão inteira
 @22
-#{top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[7:0]} top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[7] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[6] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[5] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[4] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[3] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[2] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[1] top.generatekeystream_tb.generate_keystream_2.data_path.integer_remainder.remainder[0]
-@23
 #{top.generatekeystream_tb.generate_keystream_2.data_path.rest[7:0]} top.generatekeystream_tb.generate_keystream_2.data_path.rest[7] top.generatekeystream_tb.generate_keystream_2.data_path.rest[6] top.generatekeystream_tb.generate_keystream_2.data_path.rest[5] top.generatekeystream_tb.generate_keystream_2.data_path.rest[4] top.generatekeystream_tb.generate_keystream_2.data_path.rest[3] top.generatekeystream_tb.generate_keystream_2.data_path.rest[2] top.generatekeystream_tb.generate_keystream_2.data_path.rest[1] top.generatekeystream_tb.generate_keystream_2.data_path.rest[0]
 @200
 -data / data_av / clk / rst
