@@ -1,12 +1,28 @@
 v 4
-file . "ControlPath_tb.vhd" "0204ec88d846fdd9394e0a6807e40a092ca4f6ac" "20240626023016.278":
-  entity controlpath_tb at 1( 0) + 0 on 16;
-  architecture behavioral of controlpath_tb at 13( 200) + 0 on 17;
-file . "GenerateKeyStream_pkg.vhd" "5c16a6016b7f76e59158ece78b38774027cfa79d" "20240626023016.236":
-  package generatekeystream_pkg at 1( 0) + 0 on 13;
-file . "Util_pkg.vhd" "b01c681e88ab8633aa615473a0ddd58bdd94f1ae" "20240626023016.219":
+file . "GenerateKeyStream_tb.vhd" "4ffdb6fbb27324fb8ae03615ff373bf50edbd874" "20240627013713.928":
+  entity generatekeystream_tb at 1( 0) + 0 on 27;
+  architecture behavioral of generatekeystream_tb at 12( 283) + 0 on 28;
+file . "ControlPath.vhd" "a40f236b0ebd97676e2bbd9b2a1fabb4b828955b" "20240627013713.881":
+  entity controlpath at 1( 0) + 0 on 22;
+  architecture behavioral of controlpath at 22( 448) + 0 on 23;
+file . "IntegerRemainderNbits.vhd" "7ae1024ba13678d9987955f5001af059e67dd9da" "20240627013713.840":
+  entity integerremaindernbits at 1( 0) + 0 on 18;
+  architecture behavioral of integerremaindernbits at 13( 315) + 0 on 19;
+file . "GenerateKeyStream_pkg.vhd" "5c16a6016b7f76e59158ece78b38774027cfa79d" "20240627013713.799":
+  package generatekeystream_pkg at 1( 0) + 0 on 15;
+file . "Util_pkg.vhd" "b01c681e88ab8633aa615473a0ddd58bdd94f1ae" "20240627013713.758":
   package util_pkg at 6( 241) + 0 on 11 body;
   package body util_pkg at 22( 741) + 0 on 12;
-file . "ControlPath.vhd" "116e098248d874a9fd7a52a200379ff3987b455a" "20240626023016.255":
-  entity controlpath at 1( 0) + 0 on 14;
-  architecture behavioral of controlpath at 22( 448) + 0 on 15;
+file . "Memory.vhd" "84bea48639f17760daf48fe14669c566d4c044c8" "20240627013713.783":
+  entity memory at 6( 213) + 0 on 13;
+  architecture blockram of memory at 29( 967) + 0 on 14;
+file . "RegisterNbits.vhd" "81da96555d7a1b4748943a34917fa44c2547d731" "20240627013713.820":
+  entity registernbits at 6( 242) + 0 on 16;
+  architecture behavioral of registernbits at 26( 730) + 0 on 17;
+file . "DataPath.vhd" "7e62d9cc2b4ae800b8377e9befab127f3928c188" "20240627013713.862":
+  entity datapath at 1( 0) + 0 on 20;
+  architecture behavioral of datapath at 28( 733) + 0 on 21;
+file . "GenerateKeyStream.vhd" "ee09edcc58b7acfc97bf114a5e8be75f72d55d92" "20240627013713.904":
+  entity generatekeystream at 7( 243) + 0 on 24;
+  architecture structural of generatekeystream at 31( 1032) + 0 on 25;
+  architecture behavioral of generatekeystream at 67( 1923) + 0 on 26;

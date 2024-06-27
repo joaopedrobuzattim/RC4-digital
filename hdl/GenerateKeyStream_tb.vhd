@@ -17,21 +17,21 @@ architecture behavioral of GenerateKeyStream_tb is
     signal rst, data_av       : std_logic;
 
     -- Entrada de dados de GenerateKeyStream
-    signal data_in, data      : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal data_in, data, data_in2      : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Saída de dados de GenerateKeyStream
-    signal address, dataOut   : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal address, dataOut, address2, dataOut2   : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     --Saída de dados da memória
-    signal dataOutMem         : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal dataOutMem, dataOutMem2         : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Controle de memória
-    signal sel, ld            : std_logic;
+    signal sel, ld, sel2, ld2            : std_logic;
     -- Saída done de GenerateKeyStream
-    signal done               : std_logic;
+    signal done, done2               : std_logic;
 begin
-
-    GENERATE_KEYSTREAM: entity work.GenerateKeyStream(behavioral) 
+    -- Comportamental
+    GENERATE_KEYSTREAM_1: entity work.GenerateKeyStream(behavioral) 
         generic map (
             DATA_WIDTH    => DATA_WIDTH
         )
@@ -49,7 +49,7 @@ begin
             address     => address
         );
         
-    RAM1: entity work.Memory
+    RAM_1: entity work.Memory
         generic map (
             DATA_WIDTH    => DATA_WIDTH,
             ADDR_WIDTH    => ADDR_WIDTH,
@@ -64,7 +64,7 @@ begin
             address     => address
         );
         
-    REG_MEM: entity work.RegisterNbits
+    REG_MEM_1: entity work.RegisterNbits
         generic map (
             WIDTH => DATA_WIDTH
         )
@@ -75,47 +75,61 @@ begin
             d       =>  dataOutMem,
             q       =>  data_in
         );
-    -- -- Instantiates the units under test.
-    -- PROCESSOR_STR: entity work.GenerateKeyStream(structural) 
-    --     generic map (
-    --         DATA_WIDTH    => DATA_WIDTH,
-    --         ADDR_WIDTH    => ADDR_WIDTH
-    --     )
-    --     port map (
-    --         clk         => clk,
-    --         rst         => rst,
-    --         start       => start,
-    --         startAddr   => startAddr,
-    --         size        => size,
-    --         up          => up,
-            
-    --         -- Memory interface
-    --         wr          => wr2,
-    --         dataIn      => bs2_data_i,
-    --         dataOut     => bs2_data_o,
-    --         address     => address2
-    --     );
+
+
+    -- Estrutural
+    GENERATE_KEYSTREAM_2: entity work.GenerateKeyStream(structural) 
+    generic map (
+        DATA_WIDTH    => DATA_WIDTH
+    )
+    port map (
+        clk         => clk,
+        rst         => rst,
+        data_av     => data_av,
+        done        => done2,
+        data_in     => data_in2,
+        data        => data,
+        -- Memory interface
+        sel         => sel2,
+        ld          => ld2,
+        data_out     => dataOut2,
+        address     => address2
+    );
         
-    -- RAM2: entity work.Memory
-    --     generic map (
-    --         DATA_WIDTH    => DATA_WIDTH,
-    --         ADDR_WIDTH    => ADDR_WIDTH,
-    --         imageFileName   => "image.txt"
-    --     )
-    --     port map (
-    --         clock       => clk,
-    --         ce          => '1',
-    --         wr          => wr2,
-    --         data_i      => bs2_data_o,
-    --         data_o      => bs2_data_i,
-    --         address     => address2
-    --     );
+    RAM_2: entity work.Memory
+        generic map (
+            DATA_WIDTH    => DATA_WIDTH,
+            ADDR_WIDTH    => ADDR_WIDTH,
+            imageFileName   => "image.txt"
+        )
+        port map (
+            clock       => clk,
+            ce          => sel2,
+            wr          => not(ld2),
+            data_i      => dataOut2,
+            data_o      => dataOutMem2,
+            address     => address2
+        );
+        
+    REG_MEM_2: entity work.RegisterNbits
+        generic map (
+            WIDTH => DATA_WIDTH
+        )
+        port map (
+            clock   =>  clk,
+            reset   =>  rst,
+            ce      =>  sel2,
+            d       =>  dataOutMem2,
+            q       =>  data_in2
+        );
         
     -- Generates the stimuli.
     clk <= not clk after 20 ns;    -- 25 MHz
     
     process
     begin
+        report "Aqui";
+
         rst <= '1';
         wait until  clk = '1';
         wait until  clk = '1';
@@ -155,6 +169,7 @@ begin
         data_av <= '0';
 
         wait until done = '1';
+
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';

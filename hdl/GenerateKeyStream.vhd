@@ -7,7 +7,7 @@
 library IEEE;                        
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
--- use work.BubbleSort_pkg.all;
+use work.GenerateKeyStream_pkg.all;
 
 entity GenerateKeyStream  is
     generic(
@@ -28,46 +28,40 @@ entity GenerateKeyStream  is
         
 end GenerateKeyStream;
 
--- architecture structural of BubbleSort is  
-        
---     signal cmd: Command;
---     signal sts: Status;
-    
--- begin
+architecture structural of GenerateKeyStream is  
+    signal cmd: Command;
+    signal sts: Status;
+begin
 
 
---     CONTROL_PATH: entity work.ControlPath
---         port map (
---             clk     => clk,
---             rst     => rst,
---             start   => start,    
---             done    => done,    
---             wr      => wr,
---             cmd     => cmd,
---             sts     => sts
-            
-            
---     );
+    CONTROL_PATH: entity work.ControlPath
+        port map (
+            clk     => clk,
+            rst     => rst,
+            data_av   => data_av,    
+            done    => done,    
+            sel      => sel,
+            ld      => ld,
+            cmd     => cmd,
+            sts     => sts
+    );
         
---     DATA_PATH: entity work.DataPath
---         generic map (
---             DATA_WIDTH  => DATA_WIDTH,
---             ADDR_WIDTH  => ADDR_WIDTH
---         )
---         port map (
---             clk         => clk,
---             rst         => rst,
---             startAddr   => startAddr,
---             size        => size,
---             cmd         => cmd,
---             sts         => sts,
---             dataIn      => dataIn,
---             dataOut     => dataOut,
---             address     => address,
---             up          => up
---         );
+    DATA_PATH: entity work.DataPath
+        generic map (
+            DATA_WIDTH  => DATA_WIDTH
+        )
+        port map (
+            clk         => clk,
+            rst         => rst,
+            cmd         => cmd,
+            sts         => sts,
+            data      => data,
+            data_in     => data_in,
+            addr     => address,
+            data_out          => data_out
+        );
         
--- end structural;
+end structural;
 
 
 architecture behavioral of GenerateKeyStream is 

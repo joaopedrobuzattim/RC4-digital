@@ -90,7 +90,7 @@ begin
     end process;
     
 
-    done            <= '1' when (currentState = S7 and sts.k_lt_textSize = '0') else '0';
+    done            <= '1' when (currentState = S4 and sts.k_lt_textSize = '0') else '0';
 
     sel             <= '1' when (currentState = S5  or 
                                 currentState = S7   or 
@@ -107,7 +107,7 @@ begin
 
     cmd.wrI      <= '1' when (currentState = S4 and sts.k_lt_textSize = '1') else '0';
     cmd.wrJ      <= '1' when currentState = S6 else '0';
-    cmd.wrT      <= '1' when (currentState = S11 and currentState = S6) else '0';
+    cmd.wrT      <= '1' when (currentState = S11 or currentState = S6) else '0';
     cmd.wrK      <= '1' when currentState = S14 else '0';
 
     cmd.selSum0    <= '1' when (currentState = S6  or 
