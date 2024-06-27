@@ -17,18 +17,18 @@ architecture behavioral of GenerateKeyStream_tb is
     signal rst, data_av       : std_logic;
 
     -- Entrada de dados de GenerateKeyStream
-    signal data_in, data, data_in2      : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal data_in, data, data_in2, data_in3      : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Saída de dados de GenerateKeyStream
-    signal address, dataOut, address2, dataOut2   : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal address, dataOut, address2, dataOut2, address3, dataOut3   : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     --Saída de dados da memória
-    signal dataOutMem, dataOutMem2         : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal dataOutMem, dataOutMem2, dataOutMem3         : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Controle de memória
-    signal sel, ld, sel2, ld2            : std_logic;
+    signal sel, ld, sel2, ld2, sel3, ld3            : std_logic;
     -- Saída done de GenerateKeyStream
-    signal done, done2               : std_logic;
+    signal done, done2, done3               : std_logic;
 begin
     -- Comportamental
     GENERATE_KEYSTREAM_1: entity work.GenerateKeyStream(behavioral) 
@@ -77,7 +77,7 @@ begin
         );
 
 
-    -- Estrutural
+    -- Estrutural (UTILIZANDO O OPERADOR DE MOD)
     GENERATE_KEYSTREAM_2: entity work.GenerateKeyStream(structural) 
     generic map (
         DATA_WIDTH    => DATA_WIDTH
@@ -122,6 +122,55 @@ begin
             d       =>  dataOutMem2,
             q       =>  data_in2
         );
+
+    -- Estrutural (NÃO UTILIZANDO O OPERADOR DE MOD)
+
+    GENERATE_KEYSTREAM_3: entity work.GenerateKeyStream(structural_NO_MOD_OPERATOR) 
+    generic map (
+        DATA_WIDTH    => DATA_WIDTH
+    )
+    port map (
+        clk         => clk,
+        rst         => rst,
+        data_av     => data_av,
+        done        => done3,
+        data_in     => data_in3,
+        data        => data,
+        -- Memory interface
+        sel         => sel3,
+        ld          => ld3,
+        data_out     => dataOut3,
+        address     => address3
+    );
+        
+    RAM_3: entity work.Memory
+        generic map (
+            DATA_WIDTH    => DATA_WIDTH,
+            ADDR_WIDTH    => ADDR_WIDTH,
+            imageFileName   => "image.txt"
+        )
+        port map (
+            clock       => clk,
+            ce          => sel3,
+            wr          => not(ld3),
+            data_i      => dataOut3,
+            data_o      => dataOutMem3,
+            address     => address3
+        );
+        
+    REG_MEM_3: entity work.RegisterNbits
+        generic map (
+            WIDTH => DATA_WIDTH
+        )
+        port map (
+            clock   =>  clk,
+            reset   =>  rst,
+            ce      =>  sel3,
+            d       =>  dataOutMem3,
+            q       =>  data_in3
+        );
+
+
         
     -- Generates the stimuli.
     clk <= not clk after 20 ns;    -- 25 MHz

@@ -1,29 +1,30 @@
 v 4
-file . "testbenchs/GenerateKeyStream_tb.vhd" "4ffdb6fbb27324fb8ae03615ff373bf50edbd874" "20240627123239.965":
-  entity generatekeystream_tb at 1( 0) + 0 on 28;
-  architecture behavioral of generatekeystream_tb at 12( 283) + 0 on 29;
-file . "generateKeyStream/ControlPath.vhd" "a40f236b0ebd97676e2bbd9b2a1fabb4b828955b" "20240627123239.920":
+file . "testbenchs/GenerateKeyStream_tb.vhd" "efde7ddfa694878f92520aeee4dbf74cd6888ae9" "20240627124920.208":
+  entity generatekeystream_tb at 1( 0) + 0 on 29;
+  architecture behavioral of generatekeystream_tb at 12( 283) + 0 on 30;
+file . "generateKeyStream/ControlPath.vhd" "a40f236b0ebd97676e2bbd9b2a1fabb4b828955b" "20240627124920.162":
   entity controlpath at 1( 0) + 0 on 23;
   architecture behavioral of controlpath at 22( 448) + 0 on 24;
-file . "generics/IntegerRemainderNbits.vhd" "77e18a4c79ee61071a4a23fb3c49147b8837daa8" "20240627123239.879":
+file . "generics/IntegerRemainderNbits.vhd" "77e18a4c79ee61071a4a23fb3c49147b8837daa8" "20240627124920.121":
   entity integerremaindernbits at 7( 646) + 0 on 18;
   architecture behavioral of integerremaindernbits at 22( 1029) + 0 on 19;
-file . "generics/Memory.vhd" "84bea48639f17760daf48fe14669c566d4c044c8" "20240627123239.837":
+file . "generics/Memory.vhd" "84bea48639f17760daf48fe14669c566d4c044c8" "20240627124920.080":
   entity memory at 6( 213) + 0 on 14;
   architecture blockram of memory at 29( 967) + 0 on 15;
-file . "pkgs/Util_pkg.vhd" "b01c681e88ab8633aa615473a0ddd58bdd94f1ae" "20240627123239.790":
+file . "pkgs/Util_pkg.vhd" "b01c681e88ab8633aa615473a0ddd58bdd94f1ae" "20240627124920.038":
   package util_pkg at 6( 241) + 0 on 11 body;
   package body util_pkg at 22( 741) + 0 on 12;
-file . "pkgs/GenerateKeyStream_pkg.vhd" "5c16a6016b7f76e59158ece78b38774027cfa79d" "20240627123239.813":
+file . "pkgs/GenerateKeyStream_pkg.vhd" "5c16a6016b7f76e59158ece78b38774027cfa79d" "20240627124920.057":
   package generatekeystream_pkg at 1( 0) + 0 on 13;
-file . "generics/RegisterNbits.vhd" "81da96555d7a1b4748943a34917fa44c2547d731" "20240627123239.858":
+file . "generics/RegisterNbits.vhd" "81da96555d7a1b4748943a34917fa44c2547d731" "20240627124920.100":
   entity registernbits at 6( 242) + 0 on 16;
   architecture behavioral of registernbits at 26( 730) + 0 on 17;
-file . "generateKeyStream/DataPath.vhd" "faa34a30adc0be4b880795c5060045850c98f306" "20240627123239.903":
+file . "generateKeyStream/DataPath.vhd" "faa34a30adc0be4b880795c5060045850c98f306" "20240627124920.145":
   entity datapath at 1( 0) + 0 on 20;
   architecture behavioral of datapath at 28( 733) + 0 on 21;
   architecture behavioral_no_mod_operator of datapath at 204( 5972) + 0 on 22;
-file . "generateKeyStream/GenerateKeyStream.vhd" "ee09edcc58b7acfc97bf114a5e8be75f72d55d92" "20240627123239.942":
+file . "generateKeyStream/GenerateKeyStream.vhd" "5d7e07a78a2dd941c610e8d2b1c6c45508543f86" "20240627124920.185":
   entity generatekeystream at 7( 243) + 0 on 25;
   architecture structural of generatekeystream at 31( 1032) + 0 on 26;
-  architecture behavioral of generatekeystream at 67( 1923) + 0 on 27;
+  architecture structural_no_mod_operator of generatekeystream at 66( 1933) + 0 on 27;
+  architecture behavioral of generatekeystream at 102( 2884) + 0 on 28;
