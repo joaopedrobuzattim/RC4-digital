@@ -8,7 +8,7 @@
 #include <string.h>
 #include <inttypes.h>
 
-#define STATE_SIZE    4
+#define STATE_SIZE    10
 
 /*
 * Key-scheduling algorithm (KSA)
@@ -58,7 +58,7 @@ int main() {
     uint8_t keyStream[STATE_SIZE];
     uint8_t ciphertext[STATE_SIZE];
     uint8_t key[] = "Key";
-    uint8_t plaintext[] = "An";
+    uint8_t plaintext[] = "RonnieDio";
     
     printf("Secret key: %s\n", key);
     

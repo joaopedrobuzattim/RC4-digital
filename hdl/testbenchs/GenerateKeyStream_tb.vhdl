@@ -29,6 +29,7 @@ architecture behavioral of GenerateKeyStream_tb is
     signal sel, ld, sel2, ld2, sel3, ld3            : std_logic;
     -- Saída done de GenerateKeyStream
     signal done, done2, done3               : std_logic;
+
 begin
     -- Comportamental
     GENERATE_KEYSTREAM_1: entity work.GenerateKeyStream(behavioral) 
@@ -123,86 +124,35 @@ begin
             q       =>  data_in2
         );
 
-    -- Estrutural (NÃO UTILIZANDO O OPERADOR DE MOD)
-
-    GENERATE_KEYSTREAM_3: entity work.GenerateKeyStream(structural_NO_MOD_OPERATOR) 
-    generic map (
-        DATA_WIDTH    => DATA_WIDTH
-    )
-    port map (
-        clk         => clk,
-        rst         => rst,
-        data_av     => data_av,
-        done        => done3,
-        data_in     => data_in3,
-        data        => data,
-        -- Memory interface
-        sel         => sel3,
-        ld          => ld3,
-        data_out     => dataOut3,
-        address     => address3
-    );
-        
-    RAM_3: entity work.Memory
-        generic map (
-            DATA_WIDTH    => DATA_WIDTH,
-            ADDR_WIDTH    => ADDR_WIDTH,
-            imageFileName   => "image.txt"
-        )
-        port map (
-            clock       => clk,
-            ce          => sel3,
-            wr          => not(ld3),
-            data_i      => dataOut3,
-            data_o      => dataOutMem3,
-            address     => address3
-        );
-        
-    REG_MEM_3: entity work.RegisterNbits
-        generic map (
-            WIDTH => DATA_WIDTH
-        )
-        port map (
-            clock   =>  clk,
-            reset   =>  rst,
-            ce      =>  sel3,
-            d       =>  dataOutMem3,
-            q       =>  data_in3
-        );
-
-
         
     -- Generates the stimuli.
     clk <= not clk after 20 ns;    -- 25 MHz
     
     process
     begin
+        report "Testbench 1 - plaintext = RonnieDio, key = Key, stateSize = 10";
         rst <= '1';
         wait until  clk = '1';
         wait until  clk = '1';
         rst <= '0';
         wait until  clk = '1';
+        report "Informando posicao zero na memória para o Sate";
         data <= (others => '0');
         data_av <= '1';
         wait until  clk = '1';
-        data <= "00000100";
+        report "Informando stateSize = 10";
+        data <= "00001010";
         wait until  clk = '1';
-        data <= "00000010";
+        report "Informando textSize = 9";
+        data <= "00001001";
         wait until  clk = '1';
-        data <= "00000100";
+        report "Informando  posicao 10 na memória para o KeyStream";
+        data <= "00001010";
         wait until  clk = '1';
 
         wait until done = '1';
-
         wait until  clk = '1';
         data_av <= '0';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
