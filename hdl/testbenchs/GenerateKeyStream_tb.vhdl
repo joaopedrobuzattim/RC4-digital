@@ -17,18 +17,18 @@ architecture behavioral of GenerateKeyStream_tb is
     signal rst, data_av       : std_logic;
 
     -- Entrada de dados de GenerateKeyStream
-    signal data_in, data, data_in2, data_in3      : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal data_in, data, data_in2      : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Saída de dados de GenerateKeyStream
-    signal address, dataOut, address2, dataOut2, address3, dataOut3   : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal address, dataOut, address2, dataOut2   : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     --Saída de dados da memória
-    signal dataOutMem, dataOutMem2, dataOutMem3         : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal dataOutMem, dataOutMem2         : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Controle de memória
-    signal sel, ld, sel2, ld2, sel3, ld3            : std_logic;
+    signal sel, ld, sel2, ld2              : std_logic;
     -- Saída done de GenerateKeyStream
-    signal done, done2, done3               : std_logic;
+    signal done, done2                     : std_logic;
 
 begin
     -- Comportamental
@@ -156,8 +156,8 @@ begin
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
+
         finish;
-        
         
 
     end process;
