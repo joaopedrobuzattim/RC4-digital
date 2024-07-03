@@ -8,42 +8,32 @@ entity IntegerRemainderNbits_tb is
 end IntegerRemainderNbits_tb;
 
 architecture test of IntegerRemainderNbits_tb is
-    -- Component declaration
-    component IntegerRemainderNbits
-        generic (
-            WIDTH : integer := 8
-        );
-        port (
-            nominator   : in  std_logic_vector(WIDTH - 1 downto 0);
-            denominator : in  std_logic_vector(WIDTH - 1 downto 0);
-            remainder   : out std_logic_vector(WIDTH - 1 downto 0)
-        );
-    end component;
+    constant WIDTH       : integer :=  32;
 
-    -- Signals to connect to the DUT
-    signal nominator   : std_logic_vector(7 downto 0);
-    signal denominator : std_logic_vector(7 downto 0);
-    signal remainder   : std_logic_vector(7 downto 0);
+
+    signal numerator   : std_logic_vector(WIDTH -1 downto 0);
+    signal denominator : std_logic_vector(WIDTH -1 downto 0);
+    signal remainder   : std_logic_vector(WIDTH -1 downto 0);
 
 begin
     -- Instantiate the DUT (Device Under Test)
-    uut: IntegerRemainderNbits
+    INTEGER_REMAINER_NBITS: entity work.IntegerRemainderNbits
         generic map (
-            WIDTH => 8
+            WIDTH => WIDTH
         )
         port map (
-            nominator   => nominator,
+            numerator   => numerator,
             denominator => denominator,
             remainder   => remainder
         );
 
-    -- Test process
+    -- Test process 
     process
     begin
-        -- Test case 1: 10 % 3 = 1
-        nominator <= "00001010";  -- 10 in binary
-        denominator <= "00000011";  -- 3 in binary
+        numerator   <= "00000000000000000000000000001010";  -- 10 
+        denominator <= "00000000000000000000000000000011";  -- 3
 
-        finish;
+        wait for 20 ns;
+        wait;
     end process;
 end test;

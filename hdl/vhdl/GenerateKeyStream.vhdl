@@ -46,7 +46,7 @@ begin
             sts     => sts
     );
         
-    DATA_PATH: entity work.DataPath
+    DATA_PATH: entity work.DataPath(behavioral)
         generic map (
             DATA_WIDTH  => DATA_WIDTH
         )
@@ -62,6 +62,42 @@ begin
         );
         
 end structural;
+
+
+architecture structural_NO_MOD_OPERATOR of GenerateKeyStream is  
+    signal cmd: Command;
+    signal sts: Status;
+begin
+
+
+    CONTROL_PATH: entity work.ControlPath
+        port map (
+            clk     => clk,
+            rst     => rst,
+            data_av   => data_av,    
+            done    => done,    
+            sel      => sel,
+            ld      => ld,
+            cmd     => cmd,
+            sts     => sts
+    );
+        
+    DATA_PATH: entity work.DataPath(behavioral_NO_MOD_OPERATOR)
+        generic map (
+            DATA_WIDTH  => DATA_WIDTH
+        )
+        port map (
+            clk         => clk,
+            rst         => rst,
+            cmd         => cmd,
+            sts         => sts,
+            data      => data,
+            data_in     => data_in,
+            addr     => address,
+            data_out          => data_out
+        );
+        
+end structural_NO_MOD_OPERATOR;
 
 
 architecture behavioral of GenerateKeyStream is 

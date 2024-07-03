@@ -26,9 +26,10 @@ architecture behavioral of GenerateKeyStream_tb is
     signal dataOutMem, dataOutMem2         : std_logic_vector(DATA_WIDTH-1 downto 0);
 
     -- Controle de memória
-    signal sel, ld, sel2, ld2            : std_logic;
+    signal sel, ld, sel2, ld2              : std_logic;
     -- Saída done de GenerateKeyStream
-    signal done, done2               : std_logic;
+    signal done, done2                     : std_logic;
+
 begin
     -- Comportamental
     GENERATE_KEYSTREAM_1: entity work.GenerateKeyStream(behavioral) 
@@ -77,7 +78,7 @@ begin
         );
 
 
-    -- Estrutural
+    -- Estrutural (UTILIZANDO O OPERADOR DE MOD)
     GENERATE_KEYSTREAM_2: entity work.GenerateKeyStream(structural) 
     generic map (
         DATA_WIDTH    => DATA_WIDTH
@@ -122,69 +123,42 @@ begin
             d       =>  dataOutMem2,
             q       =>  data_in2
         );
+
         
     -- Generates the stimuli.
     clk <= not clk after 20 ns;    -- 25 MHz
     
     process
     begin
-        report "Aqui";
-
+        report "Testbench 1 - plaintext = RonnieDio, key = Key, stateSize = 10";
         rst <= '1';
         wait until  clk = '1';
         wait until  clk = '1';
         rst <= '0';
         wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-
+        report "Informando posicao zero na memória para o Sate";
         data <= (others => '0');
         data_av <= '1';
         wait until  clk = '1';
-        data_av <= '0';
-
+        report "Informando stateSize = 10";
+        data <= "00001010";
         wait until  clk = '1';
+        report "Informando textSize = 9";
+        data <= "00001001";
         wait until  clk = '1';
-
-        data <= "00000100";
-        data_av <= '1';
+        report "Informando  posicao 10 na memória para o KeyStream";
+        data <= "00001010";
         wait until  clk = '1';
-        data_av <= '0';
-
-        
-        wait until  clk = '1';
-        wait until  clk = '1';
-
-        data <= "00000010";
-        data_av <= '1';
-        wait until  clk = '1';
-        data_av <= '0';
-
-        wait until  clk = '1';
-        wait until  clk = '1';
-
-        data <= "00000100";
-        data_av <= '1';
-        wait until  clk = '1';
-        data_av <= '0';
 
         wait until done = '1';
-
         wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
-
-        wait until  clk = '1';
-        wait until  clk = '1';
-        wait until  clk = '1';
+        data_av <= '0';
         wait until  clk = '1';
         wait until  clk = '1';
         wait until  clk = '1';
 
-        
         finish;
+        
 
     end process;
 end behavioral;
