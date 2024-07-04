@@ -1,4 +1,4 @@
-## File last modified by Fizzim: 1:29:45 AM on 4/30/24
+## File last modified by Fizzim: 9:37:30 PM on 7/3/24
 <version>
    14.02.26
 </version>
@@ -11685,7 +11685,7 @@ done <- 1
 <textObj>
 if (reg_k < reg_textSize )
    <x>
-   648
+   649
    </x>
    <y>
    830
@@ -21213,7 +21213,7 @@ reg_mem <- mem[reg_state + reg_i]
    </page>
 </textObj>
 <textObj>
-Compara k e stateSize
+Compara k e textSize
    <x>
    691
    </x>
